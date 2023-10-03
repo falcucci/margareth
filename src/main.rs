@@ -17,7 +17,6 @@ pub struct Config {
   pub view: String,
 }
 
-
 fn main() {
   let args = Cli::parse();
   println!("{:?}", args);
