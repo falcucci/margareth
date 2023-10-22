@@ -21,10 +21,10 @@ fn main() {
   let args = Cli::parse();
   match args.config {
     Some(config) => match config {
-      ConfigView::Config(config) => {
-        dbg!(config);
+      ConfigView::Config(_) => {
         let file = get_config();
-        dbg!(file);
+        let pretty = serde_json::to_string_pretty(&file).unwrap();
+        println!("{}", pretty);
       }
     },
     _ => println!("No config"),
