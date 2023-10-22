@@ -5,7 +5,6 @@ mod config;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
-#[warn(clippy::large_enum_variant)]
 enum Margareth {
   Config(config::Args),
   App(Box<app::Args>),
