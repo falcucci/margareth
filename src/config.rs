@@ -23,7 +23,7 @@ pub fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
   Ok(())
 }
 
-fn get_config() -> serde_json::Value {
+pub fn get_config() -> serde_json::Value {
   let file = std::fs::read_to_string("margareth.json").unwrap();
   file.parse::<serde_json::Value>().unwrap()
 }

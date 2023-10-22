@@ -1,39 +1,20 @@
-use clap::{Args, Parser, Subcommand};
+use clap::Parser;
 
+mod app;
 mod config;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 enum Margareth {
   Config(config::Args),
-}
-
-#[derive(Subcommand, Debug)]
-pub enum App {
-  Create(Create),
-  Remove(Remove),
-  List(List),
-}
-
-#[derive(Args, Debug)]
-pub struct Create {
-  pub name: String,
-}
-
-#[derive(Args, Debug)]
-pub struct Remove {
-  pub name: String,
-}
-
-#[derive(Args, Debug)]
-pub struct List {
-  pub name: String,
+  App(app::Args),
 }
 
 fn main() {
   let margareth = Margareth::parse();
   let result = match margareth {
     Margareth::Config(config) => config::run(config),
+    Margareth::App(app) => app::run(app),
   };
 
   if let Err(err) = result {
