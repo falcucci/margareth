@@ -1,0 +1,17 @@
+{
+  "clusters": {
+    "cluster-a": {
+      "server": "https://margareth.com",
+      "token": "auth-token-cluster-a",
+      "tls": false,
+      "insecure": false
+    },
+    "cluster-b": {
+      "server": "https://margareth.com",
+      "token": "auth-token-cluster-b",
+      "tls": true,
+      "insecure": false
+    }
+  },
+  "current_cluster": "cluster-a"
+}
